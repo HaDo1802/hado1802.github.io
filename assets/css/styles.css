@@ -328,7 +328,14 @@ a:hover {
   max-width: 58ch;
   margin: 0.95rem 0 0;
   color: #b6bed1;
-  line-height: 1.72;
+  line-height: 1.5;
+  font-size: clamp(1.12rem, 2.1vw, 1.48rem);
+  font-weight: 600;
+}
+
+.hero-code-card {
+  margin-top: 1rem;
+  max-width: 560px;
 }
 
 .hero-socials {
@@ -407,11 +414,11 @@ a:hover {
 
 .ide-right {
   position: relative;
-  padding: 1rem;
+  padding: 0.85rem;
   overflow: hidden;
-  display: grid;
-  align-content: start;
-  gap: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .code-glow {
@@ -466,6 +473,7 @@ a:hover {
   line-height: 1.72;
   white-space: pre-wrap;
   color: #dce2f0;
+  text-align: left;
 }
 
 .sql-keyword {
@@ -526,14 +534,64 @@ a:hover {
   z-index: 1;
 }
 
+.profile-figure {
+  position: static;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
 .ide-profile-pic {
   width: 100%;
-  height: 220px;
+  height: clamp(320px, 36vw, 460px);
   object-fit: cover;
+  object-position: center 40%;
   border-radius: 14px;
   border: 1px solid var(--line);
-  position: relative;
-  z-index: 2;
+  display: block;
+  background: var(--bg-elev);
+}
+
+.profile-note {
+  position: static;
+  transform: none;
+  margin: 0;
+  padding: 0.72rem 1.05rem;
+  border-radius: 14px;
+  border: 2px solid rgba(17, 24, 39, 0.35);
+  background: linear-gradient(135deg, #fef08a, #facc15);
+  color: #1f1a06;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.3;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.quote-section {
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, rgba(168, 85, 247, 0.11), rgba(34, 211, 238, 0.08));
+  text-align: center;
+  padding: 1.3rem 1.1rem;
+}
+
+.quote-text {
+  margin: 0;
+  font-size: clamp(1.02rem, 1.8vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.7;
+  color: #e6e9f4;
+}
+
+.quote-author {
+  margin: 0.5rem 0 0;
+  color: #d8b4fe;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 .works-section {
@@ -584,7 +642,7 @@ a:hover {
 
 .works-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
 }
 
@@ -629,11 +687,17 @@ a:hover {
 
 .works-body {
   padding: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 230px;
 }
 
 .works-body h3 {
   margin: 0;
   font-size: 1rem;
+  line-height: 1.35;
+  min-height: 2.7em;
 }
 
 .works-body h3 a {
@@ -645,14 +709,14 @@ a:hover {
 }
 
 .works-body p {
-  margin: 0.52rem 0 0;
+  margin: 0;
   color: var(--muted);
   line-height: 1.56;
-  min-height: 72px;
+  min-height: 7.8em;
 }
 
 .works-tools {
-  margin-top: 0.72rem;
+  margin-top: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
@@ -1074,7 +1138,7 @@ a:hover {
   }
 
   .ide-profile-pic {
-    height: 250px;
+    height: clamp(260px, 60vw, 360px);
   }
 }
 

@@ -8,21 +8,33 @@ title: "Home"
 <section id="about" class="hero section enterprise-hero">
   <div class="hero-grid ide-hero-grid">
     <div class="hero-main ide-left">
-      <div class="visitor-badge">
-        <span class="pulse-dot" aria-hidden="true"></span>
-        <span>1,767 unique visitors</span>
-      </div>
-
-      <h1>Hello <span aria-hidden="true">👋</span> <br>I&apos;m <span class="gradient-name">Ha Do</span></h1>
-
-      <p class="typing-line">
-        <span class="mono-text">1000+ SQL questions solved</span><span class="typing-cursor">|</span>
-      </p>
+      <h1>I am <span class="gradient-name">Ha Do</span></h1>
 
       <p class="hero-copy">
-        Data analyst, data engineer, and analytical engineer focused on reliable pipelines, scalable transformation layers,
-        and business-facing analytics systems that teams can trust in production.
+        Data Analyst @ Allegiant Air<br>
+        TCU Class of 2025
       </p>
+
+      <div class="code-editor-card hero-code-card">
+        <div class="editor-dots" aria-hidden="true">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+
+        <pre class="editor-code" aria-label="SQL snippet"><code><span class="sql-keyword">SELECT</span> <span class="sql-text">*</span>
+<span class="sql-keyword">FROM</span> <span class="sql-table">ha_do_experience</span>
+<span class="sql-keyword">WHERE</span> <span class="sql-column">role</span> = <span class="sql-value">'Data Analyst'</span>
+<span class="sql-keyword">AND</span> <span class="sql-column">role</span> = <span class="sql-value">'Rhino Lover'</span>
+<span class="sql-keyword">AND</span> <span class="sql-column">role</span> = <span class="sql-value">'Soccer Fan'</span>
+<span class="sql-keyword">AND</span> <span class="sql-column">impact</span> = <span class="sql-value">'High'</span>;</code></pre>
+
+        <div class="editor-bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
 
       <div class="social-links hero-socials" aria-label="Social links">
         <a href="https://www.linkedin.com/in/ha-van-do/" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -37,69 +49,23 @@ title: "Home"
       </div>
 
       <div class="hero-actions">
-        <a class="btn coffee-cta" href="mailto:havando1802@gmail.com?subject=Coffee%20Chat%20with%20Ha%20Do">Book a coffee chat (free)</a>
+        <a class="btn coffee-cta" href="{{ site.coffee_chat_url }}" target="_blank" rel="noopener">Book a coffee chat (free)</a>
       </div>
 
-      <ul class="hero-stats" aria-label="Portfolio summary">
-        <li>
-          <strong>{{ experience_count }}+</strong>
-          <span>Industry Roles</span>
-        </li>
-        <li>
-          <strong>{{ project_count }}+</strong>
-          <span>Projects Shipped</span>
-        </li>
-        <li>
-          <strong>10+</strong>
-          <span>Core Data Tools</span>
-        </li>
-      </ul>
     </div>
 
     <aside class="hero-side ide-right" aria-label="Code editor style profile card">
-      <div class="code-glow" aria-hidden="true"></div>
-      <div class="code-editor-card">
-        <div class="editor-dots" aria-hidden="true">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-        </div>
-
-        <pre class="editor-code" aria-label="SQL snippet"><code><span class="sql-keyword">SELECT</span> <span class="sql-text">*</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">ha_do_experience</span>
-<span class="sql-keyword">WHERE</span> <span class="sql-column">role</span> = <span class="sql-value">'Data Engineer'</span>
-<span class="sql-keyword">AND</span> <span class="sql-column">impact</span> = <span class="sql-value">'High'</span>;</code></pre>
-
-        <div class="editor-bars" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-      <div class="blueprint-grid" aria-hidden="true"></div>
-      <img src="{{ '/assets/images/me.jpeg' | relative_url }}" alt="Portrait of Ha Do" class="profile-pic ide-profile-pic">
+      <figure class="profile-figure">
+        <img src="{{ '/assets/images/me.jpeg' | relative_url }}" alt="Portrait of Ha Do" class="profile-pic ide-profile-pic">
+        <figcaption class="profile-note">Trying to learn golf ⛳. Scorecard says one thing, my confidence says another 😅</figcaption>
+      </figure>
     </aside>
   </div>
 </section>
 
-<section class="section capabilities" aria-label="Core capabilities">
-  <div class="section-header">
-    <h2>What I Build</h2>
-  </div>
-  <div class="cap-grid">
-    <article class="cap-card">
-      <h3>Reliable Data Pipelines</h3>
-      <p>Automated extraction, transformation, and orchestration pipelines with reproducible runs and clean failure handling.</p>
-    </article>
-    <article class="cap-card">
-      <h3>Analytics-Ready Models</h3>
-      <p>Dimensional marts and dbt-friendly transformations that accelerate dashboarding and deep analytical queries.</p>
-    </article>
-    <article class="cap-card">
-      <h3>Decision Systems</h3>
-      <p>Forecasting, pricing, and optimization workflows that help stakeholders move faster with evidence-backed decisions.</p>
-    </article>
-  </div>
+<section class="quote-section section" aria-label="Personal quote">
+  <p class="quote-text">"The goal is not to read a book, the goal is to become a reader."</p>
+  <p class="quote-author">James Clear</p>
 </section>
 
 <section id="experience" class="section">
@@ -136,7 +102,6 @@ title: "Home"
   <div class="section-header works-header">
     <h2>Featured Project</h2>
   </div>
-  <p class="works-subtext">My Friday nights? Debugging ETL pipelines at 2 AM and arguing with SQL queries. Some call it sad, I call it living the dream.</p>
 
   <div class="works-filters" role="tablist" aria-label="Project filters">
     <button class="works-filter-btn is-active" type="button" data-filter-btn data-filter="all">All (6)</button>
@@ -235,7 +200,7 @@ title: "Home"
     <div class="contact-panel coffee-panel">
       <h3>Schedule a Coffee Chat</h3>
       <p>Share a few possible times and I will confirm one with you.</p>
-      <a class="btn" href="mailto:havando1802@gmail.com?subject=Coffee%20Chat%20with%20Ha%20Do&body=Hi%20Ha%2C%0A%0AI%20would%20love%20to%20schedule%20a%20coffee%20chat.%20Here%20are%20a%20few%20times%20that%20work%20for%20me%3A%0A-%20%0A-%20%0A%0AThanks!">Schedule by Email</a>
+      <a class="btn" href="{{ site.coffee_chat_url }}" target="_blank" rel="noopener">Book on Calendly</a>
       <a class="btn ghost" href="https://github.com/HaDo1802" target="_blank" rel="noopener">View GitHub</a>
     </div>
   </div>

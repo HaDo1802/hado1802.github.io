@@ -1,5 +1,5 @@
 ---
-title: "Passion & Impact"
+title: "RHINO Story:"
 layout: default
 ---
 

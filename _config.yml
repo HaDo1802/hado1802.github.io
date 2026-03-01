@@ -1,0 +1,16 @@
+title: "Ha Do — Data Analyst "
+description: "Production-like data engineering builds, explained clearly."
+baseurl: ""
+url: ""
+markdown: kramdown
+theme: null
+plugins: []
+defaults:
+  - scope: { path: "" }
+    values:
+      layout: default
+author: "Ha Do"
+github_username: "HaDo1802"
+coffee_chat_url: "mailto:havando1802@gmail.com?subject=Coffee%20Chat%20with%20Ha%20Do"
+exclude:
+  - "README.md"

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    {% assign home_url = '/' | relative_url %}
+    {% assign coffee_chat_url = site.coffee_chat_url | default: 'mailto:havando1802@gmail.com?subject=Coffee%20Chat%20with%20Ha%20Do' %}
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="{{ home_url }}#about">Ha Do</a>
+        <nav class="nav-center" aria-label="Section navigation">
+          <a href="{{ home_url }}#about">About</a>
+          <a href="{{ home_url }}#experience">Experience</a>
+          <a href="{{ home_url }}#projects">Projects</a>
+          <a href="{{ home_url }}#certificates">Certificates</a>
+          <a href="{{ home_url }}#contact">Contact</a>
+          <a href="{{ '/passion' | relative_url }}">Passion</a>
+        </nav>
+        <div class="header-actions">
+          <a class="btn header-chat-btn" href="{{ coffee_chat_url }}" target="_blank" rel="noopener">Coffee Chat</a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+            <span class="menu-text">Menu</span>
+            <span class="menu-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+        <nav id="site-menu" class="nav-menu" aria-label="Primary">
+          <a href="{{ home_url }}#about">About</a>
+          <a href="{{ home_url }}#experience">Experience</a>
+          <a href="{{ home_url }}#projects">Projects</a>
+          <a href="{{ home_url }}#certificates">Certificates</a>
+          <a href="{{ home_url }}#contact">Contact</a>
+          <a href="{{ '/passion' | relative_url }}">Passion</a>
+          <a href="{{ coffee_chat_url }}" target="_blank" rel="noopener">Schedule a Coffee Chat</a>
+        </nav>
+      </div>
+    </header>
+    <main class="content">
+      {{ content }}
+    </main>
+    <footer class="site-footer">
+      <p>© {{ site.time | date: '%Y' }} {{ site.author }}</p>
+    </footer>
+    <button class="back-to-top" type="button" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script>
+      // Smooth scroll
+      document.querySelectorAll('a[href*="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const href = a.getAttribute('href');
+          if (!href || href === '#') return;
+          const url = new URL(href, window.location.origin);
+          if (url.pathname !== window.location.pathname || !url.hash) return;
+          const target = document.querySelector(url.hash);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+      // Menu toggle
+      (function () {
+        var toggle = document.querySelector('.menu-toggle');
+        var menu = document.querySelector('.nav-menu');
+        if (!toggle || !menu) return;
+        function closeMenu() {
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        }
+        toggle.addEventListener('click', function () {
+          var isOpen = menu.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          document.body.classList.toggle('menu-open', isOpen);
+        });
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', closeMenu);
+        });
+        document.addEventListener('click', function (e) {
+          if (menu.contains(e.target) || toggle.contains(e.target)) return;
+          closeMenu();
+        });
+      })();
+      // Back to top
+      (function () {
+        var btn = document.querySelector('.back-to-top');
+        if (!btn) return;
+        function update() {
+          btn.classList.toggle('show', window.scrollY > 500);
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+      })();
+      // Preview swap on hover if data-preview exists
+      document.addEventListener('mouseover', function(e){
+        const img = e.target.closest('img[data-preview]');
+        if(!img) return;
+        img.dataset.still = img.dataset.still || img.src;
+        img.src = img.getAttribute('data-preview');
+      });
+      document.addEventListener('mouseout', function(e){
+        const img = e.target.closest('img[data-preview]');
+        if(!img || !img.dataset.still) return;
+        img.src = img.dataset.still;
+      });
+      // Simple lightbox
+      const lb = document.createElement('div');
+      lb.className = 'lightbox hidden';
+      lb.innerHTML = '<div class="lb-backdrop"></div><img class="lb-img" alt=""><button class="lb-close" aria-label="Close">×</button>';
+      document.body.appendChild(lb);
+      const lbImg = lb.querySelector('.lb-img');
+      const close = () => lb.classList.add('hidden');
+      lb.querySelector('.lb-backdrop').addEventListener('click', close);
+      lb.querySelector('.lb-close').addEventListener('click', close);
+      document.addEventListener('click', function(e){
+        const a = e.target.closest('[data-lightbox-src]');
+        if(!a) return;
+        e.preventDefault();
+        lbImg.src = a.getAttribute('data-lightbox-src');
+        lb.classList.remove('hidden');
+      });
+    </script>
+  </body>
+</html>

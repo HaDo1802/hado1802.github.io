@@ -1,0 +1,14 @@
+- title: "Rhino Conservation in South Africa"
+  description: "My journey supporting rhino conservation efforts and experiencing wildlife in their natural habitat."
+  date: "2024"
+  location: "South Africa"
+  image: "/assets/images/passion/rhino-main.jpg"
+  preview_gif: "/assets/images/passion/rhino-main.jpg"
+  gallery:
+    - "/assets/images/passion/rhino-1.jpg"
+    - "/assets/images/passion/rhino-2.jpg"
+    - "/assets/images/passion/rhino-3.jpg"
+  highlights:
+    - "Visited rhino sanctuaries"
+    - "Learned about anti-poaching efforts"
+    - "Experienced South African wildlife"

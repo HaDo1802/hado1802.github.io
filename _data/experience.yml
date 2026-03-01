@@ -1,0 +1,38 @@
+- company: "Allegiant Air"
+  position: "Revenue & Planning Analytical Engineer"
+  start_date: "June 2025"
+  end_date: "Present"
+  location: "Las Vegas, NV"
+  description: "@ Operation Research/ Commerical & Science Analytics Team, focusing on pricing model optimization and automation engineering."
+  image: "assets/images/experience/allegiant_air.jpeg"
+  company_link: "https://www.allegiantair.com"
+  skills: ["Python", "SQL", "AWS SageMaker", "Optimization"]
+
+- company: "Southwest Airlines"
+  position: "BI Analytics Intern"
+  start_date: "May 2024"
+  end_date: "August 2024"
+  location: "Dallas, TX"
+  description: "@ Real Estate Analytics Team, focusing on data pipeline development and dashboards automation to support analytics operations."
+  image: "assets/images/experience/swa.jpg"
+  company_link: "https://www.southwest.com"
+  skills: ["Python", "SQL", "Tableau API Extensions", "Alteryx", "XGBoost"]
+
+- company: "Corning Incorporated"
+  position: "Data Analyst Intern"
+  start_date: "August 2023"
+  end_date: "December 2023"
+  location: "Dallas, TX"
+  description: "@ Global Supply Chain team, focusing on order management and loss analysis"
+  image: "assets/images/experience/corning.jpeg"
+  company_link: "https://www.corning.com"
+  skills: ["Tableau", "SQL", "Excel", "Six Sigma"]
+
+- company: "Savills"
+  position: "Data Analyst Intern"
+  start_date: "May 2023"
+  end_date: "August 2023"
+  location: "Hanoi, VN"
+  description: "@ Real Estate Investment team, focusing on market research analysis and dashboards development."
+  image: "assets/images/experience/savills.jpeg"
+  skills: ["Python", "SQL", "Power BI", "Excel"]

@@ -94,6 +94,29 @@
         window.addEventListener('scroll', update, { passive: true });
         update();
       })();
+      // My Works filter
+      (function () {
+        var filterButtons = document.querySelectorAll('[data-filter-btn]');
+        var cards = document.querySelectorAll('[data-work-card]');
+        if (!filterButtons.length || !cards.length) return;
+        function applyFilter(category) {
+          cards.forEach(function (card) {
+            var cardCategory = card.getAttribute('data-category');
+            var shouldShow = category === 'all' || cardCategory === category;
+            card.classList.toggle('is-hidden', !shouldShow);
+          });
+        }
+        filterButtons.forEach(function (button) {
+          button.addEventListener('click', function () {
+            var filter = button.getAttribute('data-filter') || 'all';
+            filterButtons.forEach(function (btn) {
+              btn.classList.toggle('is-active', btn === button);
+            });
+            applyFilter(filter);
+          });
+        });
+        applyFilter('all');
+      })();
       // Preview swap on hover if data-preview exists
       document.addEventListener('mouseover', function(e){
         const img = e.target.closest('img[data-preview]');

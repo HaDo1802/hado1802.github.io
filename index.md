@@ -31,12 +31,6 @@ title: "Home"
         <a href="https://github.com/HaDo1802" target="_blank" rel="noopener" aria-label="GitHub">
           <i class="fa-brands fa-github"></i>
         </a>
-        <a href="https://leetcode.com" target="_blank" rel="noopener" aria-label="LeetCode">
-          <i class="fa-solid fa-code"></i>
-        </a>
-        <a href="#certificates" aria-label="Certificates">
-          <i class="fa-solid fa-circle-check"></i>
-        </a>
         <a href="mailto:havando1802@gmail.com" aria-label="Email">
           <i class="fa-solid fa-envelope"></i>
         </a>
@@ -138,34 +132,51 @@ title: "Home"
   </div>
 </section>
 
-<section id="projects" class="section">
-  <div class="section-header">
-    <h2>Featured Projects</h2>
-    <a class="view-all" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">All repositories</a>
+<section id="projects" class="section works-section" aria-label="Featured project">
+  <div class="section-header works-header">
+    <h2>Featured Project</h2>
   </div>
-  <div class="projects-grid">
+  <p class="works-subtext">My Friday nights? Debugging ETL pipelines at 2 AM and arguing with SQL queries. Some call it sad, I call it living the dream.</p>
+
+  <div class="works-filters" role="tablist" aria-label="Project filters">
+    <button class="works-filter-btn is-active" type="button" data-filter-btn data-filter="all">All (6)</button>
+    <button class="works-filter-btn" type="button" data-filter-btn data-filter="data-pipeline">Data Pipeline (3)</button>
+    <button class="works-filter-btn" type="button" data-filter-btn data-filter="ml-statistics">ML &amp; Statistics (2)</button>
+    <button class="works-filter-btn" type="button" data-filter-btn data-filter="bi-dashboard">BI &amp; Dashboards (1)</button>
+  </div>
+
+  <div class="works-grid">
     {% for item in site.data.projects %}
-    <article class="card project-card">
-      <a class="thumb" href="{{ item.link }}" target="_blank" rel="noopener" aria-label="Open {{ item.title }}">
-        <img src="{{ item.image | default: '/assets/images/placeholder_project.jpg' | relative_url }}"
-             alt="{{ item.title | escape }} thumbnail"
-             loading="lazy"
-             {% if item.preview_gif %}data-preview="{{ item.preview_gif | relative_url }}"{% endif %}>
+    {% assign category = 'bi-dashboard' %}
+    {% assign category_label = 'BI & Dashboards' %}
+    {% if item.title contains 'Zillow Real Estate Analytics Pipelines' or item.title contains 'E-commerce Revenue Analysis' or item.title contains 'Zillow Data Extraction & Ingestion Pipeline' %}
+      {% assign category = 'data-pipeline' %}
+      {% assign category_label = 'Data Pipeline' %}
+    {% elsif item.title contains 'Housing Price Prediction' or item.title contains 'Portfolio Optimization & Management' %}
+      {% assign category = 'ml-statistics' %}
+      {% assign category_label = 'ML & Statistics' %}
+    {% endif %}
+    <article class="works-card" data-work-card data-category="{{ category }}">
+      <a class="works-thumb" href="{{ item.link }}" target="_blank" rel="noopener" aria-label="Open {{ item.title }}">
+        <img src="{{ item.image | default: '/assets/images/placeholder_project.jpg' | relative_url }}" alt="{{ item.title | escape }} thumbnail" loading="lazy">
+        <span class="works-tag">{{ category_label }}</span>
       </a>
-      <div class="card-body">
-        <h3 class="card-title"><a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.title }}</a></h3>
-        <p class="card-text">{{ item.description }}</p>
-        {% if item.stack %}<p class="card-tags">{{ item.stack }}</p>{% endif %}
+      <div class="works-body">
+        <h3><a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.title }}</a></h3>
+        <p>{{ item.description }}</p>
         {% if item.skills_icons %}
-        <div class="project-skills" aria-label="Project skill icons">
+        <div class="works-tools" aria-label="Project tools">
           {% for skill in item.skills_icons %}
-          <img src="{{ skill.src | relative_url }}" alt="{{ skill.alt | escape }} icon" loading="lazy" class="project-skill-icon">
+          <span><i class="fa-solid fa-microchip"></i>{{ skill.alt }}</span>
           {% endfor %}
+        </div>
+        {% elsif item.stack %}
+        <div class="works-tools" aria-label="Project tools">
+          <span><i class="fa-solid fa-microchip"></i>{{ item.stack }}</span>
         </div>
         {% endif %}
         <div class="card-actions">
-          {% if item.screenshot %}<a href="#" class="btn ghost" data-lightbox-src="{{ item.screenshot | relative_url }}">Preview</a>{% endif %}
-          <a class="btn" href="{{ item.link }}" target="_blank" rel="noopener">Open Project</a>
+          <a class="btn ghost" href="{{ item.link }}" target="_blank" rel="noopener">Open Project</a>
         </div>
       </div>
     </article>

@@ -129,11 +129,6 @@ a:hover {
   gap: 0.6rem;
 }
 
-.header-chat-btn {
-  font-size: 0.75rem;
-  padding: 0.45rem 0.82rem;
-}
-
 .menu-toggle {
   display: inline-flex;
   align-items: center;
@@ -364,13 +359,6 @@ a:hover {
   color: #0b0e14;
 }
 
-.hero-actions {
-  margin-top: 1.15rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
 .hero-stats {
   margin: 1.3rem 0 0;
   padding: 0;
@@ -396,20 +384,6 @@ a:hover {
 .hero-stats span {
   color: var(--muted);
   font-size: 0.78rem;
-}
-
-.coffee-cta {
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: transparent;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.78rem;
-}
-
-.coffee-cta:hover {
-  border-color: rgba(168, 85, 247, 0.6);
-  box-shadow: 0 0 24px rgba(168, 85, 247, 0.25);
 }
 
 .ide-right {
@@ -1006,18 +980,12 @@ a:hover {
 
 .contact-layout {
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0.9rem;
 }
 
 .contact-actions {
   margin-top: 1rem;
-}
-
-.coffee-panel {
-  background:
-    radial-gradient(circle at 88% 8%, rgba(34, 211, 238, 0.17), transparent 35%),
-    linear-gradient(160deg, rgba(168, 85, 247, 0.15), rgba(34, 211, 238, 0.1));
 }
 
 .site-footer {
@@ -1121,8 +1089,7 @@ a:hover {
 }
 
 @media (max-width: 1120px) {
-  .nav-center,
-  .header-chat-btn {
+  .nav-center {
     display: none;
   }
 

@@ -37,7 +37,7 @@
     - src: "assets/images/skills/python.png"
       alt: "Python"
     - src: "assets/images/skills/scikit_learn.png"
-      alt: "Scipy / Scientific Python"
+      alt: "Optimization"
 
 - title: "Zillow Real Estate Analytics Pipelines"
   link: "https://github.com/HaDo1802/zillow_data_transformation"
@@ -75,8 +75,8 @@
 
 - title: "Zillow Data Extraction & Ingestion Pipeline"
   link: "https://github.com/HaDo1802/zillow_data_extract"
-  description: "ETL pipeline using Python, Airflow, and PostgreSQL. Automates data ingestion from RapidAPI, light cleaning, and loads into PostgreSQL for downstream dbt transformations and machine learning development. Orchestrate data pipelines with CI/CD powered by GitHub Actions."
-  stack: "PostgreSQL · Airflow · dbt · Docker · Github Actions"
+  description: "ETL pipeline using Python, Airflow, and Supabase File/Data Storage. Automates data ingestion from RapidAPI, light cleaning, and loads into Supabase File storage (S3- compatible) for downstream dbt transformations and machine learning development. Orchestrate data pipelines with CI/CD powered by GitHub Actions."
+  stack: "Supabase · Airflow · dbt · Docker · Github Actions"
   image: "assets/images/project/zillow_extract.png"
   preview_gif: "assets/images/project/zillow_extract.png"
   screenshot: "assets/images/project/zillow_extract.png"

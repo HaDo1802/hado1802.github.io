@@ -159,7 +159,7 @@ layout: default
 
   <figure class="journal-figure">
     <img src="{{ '/assets/images/passion/IMG_6037.jpeg' | relative_url }}" alt="Rhino conservation moment in South Africa" data-lightbox-src="{{ '/assets/images/passion/IMG_6037.jpeg' | relative_url }}">
-    <figcaption class="journal-caption"><strong>Edit caption:</strong> Short, concise description of this image.</figcaption>
+    <figcaption class="journal-caption"><strong>Elephant sighting:</strong> An early game drive brought us face to face with this elephant watching from the ridge.</figcaption>
   </figure>
 
   <p>
@@ -185,15 +185,15 @@ layout: default
   <div class="journal-gallery">
     <figure>
       <img src="{{ '/assets/images/passion/IMG_5880.jpeg' | relative_url }}" alt="Wildlife conservation scene" data-lightbox-src="{{ '/assets/images/passion/IMG_5880.jpeg' | relative_url }}">
-      <figcaption class="journal-caption"><strong>Edit caption:</strong> Short, concise description of this image.</figcaption>
+      <figcaption class="journal-caption"><strong>Buffalo conservation lesson:</strong> Our team doing Wildebeest procedure: blood and temperature checking.</figcaption>
     </figure>
     <figure>
       <img src="{{ '/assets/images/passion/IMG_5958.jpeg' | relative_url }}" alt="South African landscape" data-lightbox-src="{{ '/assets/images/passion/IMG_5958.jpeg' | relative_url }}">
-      <figcaption class="journal-caption"><strong>Edit caption:</strong> Short, concise description of this image.</figcaption>
+      <figcaption class="journal-caption"><strong>Tracking by scale:</strong> Our ranger compared hist body length with a giraffe bones.</figcaption>
     </figure>
     <figure>
       <img src="{{ '/assets/images/passion/IMG_6092.jpg' | relative_url }}" alt="Rhino conservation details" data-lightbox-src="{{ '/assets/images/passion/IMG_6092.jpg' | relative_url }}">
-      <figcaption class="journal-caption"><strong>Edit caption:</strong> Short, concise description of this image.</figcaption>
+      <figcaption class="journal-caption"><strong>Up close with a rhino:</strong> Me sitting  beside a sedated rhino made the reality of conservation feel immediate and personal.</figcaption>
     </figure>
   </div>
 

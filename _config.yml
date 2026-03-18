@@ -11,6 +11,5 @@ defaults:
       layout: default
 author: "Ha Do"
 github_username: "HaDo1802"
-coffee_chat_url: "https://calendly.com/havando1802/30min"
 exclude:
   - "README.md"

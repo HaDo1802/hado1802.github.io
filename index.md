@@ -48,10 +48,6 @@ title: "Home"
         </a>
       </div>
 
-      <div class="hero-actions">
-        <a class="btn coffee-cta" href="{{ site.coffee_chat_url }}" target="_blank" rel="noopener">Book a coffee chat (free)</a>
-      </div>
-
     </div>
 
     <aside class="hero-side ide-right" aria-label="Code editor style profile card">
@@ -196,12 +192,6 @@ title: "Home"
         <a class="btn" href="mailto:havando1802@gmail.com">Email Me</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/ha-van-do/" target="_blank" rel="noopener">Message on LinkedIn</a>
       </div>
-    </div>
-    <div class="contact-panel coffee-panel">
-      <h3>Schedule a Coffee Chat</h3>
-      <p>Share a few possible times and I will confirm one with you.</p>
-      <a class="btn" href="{{ site.coffee_chat_url }}" target="_blank" rel="noopener">Book on Calendly</a>
-      <a class="btn ghost" href="https://github.com/HaDo1802" target="_blank" rel="noopener">View GitHub</a>
     </div>
   </div>
 </section>

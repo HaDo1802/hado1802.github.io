@@ -17,7 +17,9 @@
   link: "https://github.com/HaDo1802/housing_price_predictor"
   description: " production-ready ML pipeline to predict house price using linear and tree-based algorithms on real estate data, powered by experiment tracking and modular engineering."
   stack: "Docker Compose · MLflow ·  XGBoost  · Streamlit"
-  image: "assets/images/project/housing_predictor.png"
+  image: "assets/images/project/MLOps.png"
+  preview_gif: "assets/images/project/MLOps.png"
+  screenshot: "assets/images/project/MLOps.png"
   skills_icons:
     - src: "assets/images/skills/docker.png"
       alt: "Docker"

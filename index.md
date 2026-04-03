@@ -8,10 +8,13 @@ title: "Home"
 <section id="about" class="hero section enterprise-hero">
   <div class="hero-grid ide-hero-grid">
     <div class="hero-main ide-left">
-      <h1>I am <span class="gradient-name">Ha Do</span></h1>
+      <h1>
+        I am <span class="gradient-name">Ha Do</span>
+        <img class="name-accent-gif" src="https://user-images.githubusercontent.com/74038190/235294015-47144047-25ab-417c-af1b-6746820a20ff.gif" alt="" aria-hidden="true">
+      </h1>
 
       <p class="hero-copy">
-        Data Analyst @ Allegiant Air<br>
+        Data Analytics Engineer @ Allegiant Air<br>
         TCU Class of 2025
       </p>
 
@@ -24,10 +27,10 @@ title: "Home"
 
         <pre class="editor-code" aria-label="SQL snippet"><code><span class="sql-keyword">SELECT</span> <span class="sql-text">*</span>
 <span class="sql-keyword">FROM</span> <span class="sql-table">ha_do_experience</span>
-<span class="sql-keyword">WHERE</span> <span class="sql-column">role</span> = <span class="sql-value">'Data Analyst'</span>
-<span class="sql-keyword">AND</span> <span class="sql-column">role</span> = <span class="sql-value">'Rhino Lover'</span>
-<span class="sql-keyword">AND</span> <span class="sql-column">role</span> = <span class="sql-value">'Soccer Fan'</span>
-<span class="sql-keyword">AND</span> <span class="sql-column">impact</span> = <span class="sql-value">'High'</span>;</code></pre>
+<span class="sql-keyword">WHERE</span> <span class="sql-column">role</span> = <span class="sql-value">'Data Analytics Engineer'</span>
+<span class="sql-keyword">AND</span> <span class="sql-column">side interest</span> = <span class="sql-value">'Rhino Lover'</span>
+<span class="sql-keyword">AND</span> <span class="sql-column">sport favourite</span> = <span class="sql-value">'Soccer Fan'</span>
+<span class="sql-keyword">AND</span> <span class="sql-column">personality</span> = <span class="sql-value">'Passionate'</span>;</code></pre>
 
         <div class="editor-bars" aria-hidden="true">
           <span></span>
@@ -73,7 +76,7 @@ title: "Home"
     <article class="experience-card">
       <div class="experience-core">
         <p class="experience-dates">{{ item.start_date }} — {{ item.end_date }}</p>
-        <h3 class="experience-company">{{ item.company }}</h3>
+        <h3 class="experience-company">{{ item.company }}{% if item.team %}<span class="experience-team">@ {{ item.team }}</span>{% endif %}</h3>
         <p class="experience-position">{{ item.position }} · {{ item.location }}</p>
         <p class="experience-description">{{ item.description }}</p>
         {% if item.skills %}

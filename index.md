@@ -138,16 +138,27 @@ title: "Home"
         <p>{{ item.description }}</p>
         {% if item.skills_icons %}
         <div class="works-tools" aria-label="Project tools">
+          <div class="works-tools-label">Tech Stack</div>
+          <ul class="works-tools-list" aria-label="Tech stack">
           {% for skill in item.skills_icons %}
-          <span>
-            {% if skill.src %}<img src="{{ skill.src | relative_url }}" alt="" loading="lazy">{% endif %}
-            {{ skill.alt }}
-          </span>
+          <li class="works-tool" title="{{ skill.alt }}" aria-label="{{ skill.alt }}">
+            <span class="works-tool-icon" aria-hidden="true">
+              {% if skill.src %}<img src="{{ skill.src | relative_url }}" alt="" loading="lazy">{% elsif skill.icon %}<i class="{{ skill.icon }}"></i>{% else %}<span class="works-tool-fallback">{{ skill.alt | slice: 0, 1 }}</span>{% endif %}
+            </span>
+            <span class="sr-only">{{ skill.alt }}</span>
+          </li>
           {% endfor %}
+          </ul>
         </div>
         {% elsif item.stack %}
         <div class="works-tools" aria-label="Project tools">
-          <span><i class="fa-solid fa-microchip"></i>{{ item.stack }}</span>
+          <div class="works-tools-label">Tech Stack</div>
+          <div class="works-tools-list">
+            <span class="works-tool works-tool--stack" aria-label="{{ item.stack }}">
+              <span class="works-tool-icon" aria-hidden="true"><i class="fa-solid fa-microchip"></i></span>
+              <span class="works-tool-stack-copy">{{ item.stack }}</span>
+            </span>
+          </div>
         </div>
         {% endif %}
         <div class="works-footer">

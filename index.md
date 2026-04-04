@@ -4,6 +4,9 @@ title: "Home"
 
 {% assign experience_count = site.data.experience | size %}
 {% assign project_count = site.data.projects | size %}
+{% assign data_pipeline_count = site.data.projects | where: "category", "data-pipeline" | size %}
+{% assign ml_statistics_count = site.data.projects | where: "category", "ml-statistics" | size %}
+{% assign bi_dashboard_count = site.data.projects | where: "category", "bi-dashboard" | size %}
 
 <section id="about" class="hero section enterprise-hero">
   <div class="hero-grid ide-hero-grid">
@@ -103,35 +106,43 @@ title: "Home"
   </div>
 
   <div class="works-filters" role="tablist" aria-label="Project filters">
-    <button class="works-filter-btn is-active" type="button" data-filter-btn data-filter="all">All (6)</button>
-    <button class="works-filter-btn" type="button" data-filter-btn data-filter="data-pipeline">Data Pipeline (3)</button>
-    <button class="works-filter-btn" type="button" data-filter-btn data-filter="ml-statistics">ML &amp; Statistics (2)</button>
-    <button class="works-filter-btn" type="button" data-filter-btn data-filter="bi-dashboard">BI &amp; Dashboards (1)</button>
+    <button class="works-filter-btn is-active" type="button" data-filter-btn data-filter="all">All ({{ project_count }})</button>
+    <button class="works-filter-btn" type="button" data-filter-btn data-filter="data-pipeline">Data Pipeline ({{ data_pipeline_count }})</button>
+    <button class="works-filter-btn" type="button" data-filter-btn data-filter="ml-statistics">ML &amp; Statistics ({{ ml_statistics_count }})</button>
+    <button class="works-filter-btn" type="button" data-filter-btn data-filter="bi-dashboard">BI &amp; Dashboards ({{ bi_dashboard_count }})</button>
   </div>
 
   <div class="works-grid">
     {% for item in site.data.projects %}
-    {% assign category = 'bi-dashboard' %}
-    {% assign category_label = 'BI & Dashboards' %}
-    {% if item.title contains 'Zillow Real Estate Analytics Pipelines' or item.title contains 'E-commerce Revenue Analysis' or item.title contains 'Zillow Data Extraction & Ingestion Pipeline' %}
-      {% assign category = 'data-pipeline' %}
-      {% assign category_label = 'Data Pipeline' %}
-    {% elsif item.title contains 'Housing Price Prediction' or item.title contains 'Portfolio Optimization & Management' %}
-      {% assign category = 'ml-statistics' %}
-      {% assign category_label = 'ML & Statistics' %}
-    {% endif %}
-    <article class="works-card" data-work-card data-category="{{ category }}">
-      <a class="works-thumb" href="{{ item.link }}" target="_blank" rel="noopener" aria-label="Open {{ item.title }}">
-        <img src="{{ item.image | default: '/assets/images/placeholder_project.jpg' | relative_url }}" alt="{{ item.title | escape }} thumbnail" loading="lazy">
-        <span class="works-tag">{{ category_label }}</span>
-      </a>
+    <article class="works-card" data-work-card data-category="{{ item.category }}">
+      <div class="works-media">
+        <a class="works-thumb" href="{{ item.link }}" target="_blank" rel="noopener" aria-label="Open {{ item.title }}">
+          <img
+            src="{{ item.media.cover | default: '/assets/images/placeholder_project.jpg' | relative_url }}"
+            {% if item.media.preview %}data-preview="{{ item.media.preview | relative_url }}"{% endif %}
+            alt="{{ item.title | escape }} thumbnail"
+            loading="lazy"
+          >
+          <span class="works-thumb-overlay" aria-hidden="true"></span>
+          <span class="works-tag">{{ item.category_label }}</span>
+        </a>
+        {% if item.media.screenshot %}
+        <button class="works-expand-btn" type="button" data-lightbox-src="{{ item.media.screenshot | relative_url }}" aria-label="Preview {{ item.title }}">
+          <i class="fa-solid fa-up-right-and-down-left-from-center" aria-hidden="true"></i>
+        </button>
+        {% endif %}
+      </div>
       <div class="works-body">
+        <div class="works-kicker">{{ item.category_label }}</div>
         <h3><a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.title }}</a></h3>
         <p>{{ item.description }}</p>
         {% if item.skills_icons %}
         <div class="works-tools" aria-label="Project tools">
           {% for skill in item.skills_icons %}
-          <span><i class="fa-solid fa-microchip"></i>{{ skill.alt }}</span>
+          <span>
+            {% if skill.src %}<img src="{{ skill.src | relative_url }}" alt="" loading="lazy">{% endif %}
+            {{ skill.alt }}
+          </span>
           {% endfor %}
         </div>
         {% elsif item.stack %}
@@ -139,8 +150,11 @@ title: "Home"
           <span><i class="fa-solid fa-microchip"></i>{{ item.stack }}</span>
         </div>
         {% endif %}
-        <div class="card-actions">
-          <a class="btn ghost" href="{{ item.link }}" target="_blank" rel="noopener">Open Project</a>
+        <div class="works-footer">
+          <a class="works-link" href="{{ item.link }}" target="_blank" rel="noopener">
+            View Project
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
     </article>

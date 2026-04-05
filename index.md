@@ -2,11 +2,19 @@
 title: "Home"
 ---
 
-{% assign experience_count = site.data.experience | size %}
 {% assign project_count = site.data.projects | size %}
 {% assign data_pipeline_count = site.data.projects | where: "category", "data-pipeline" | size %}
 {% assign ml_statistics_count = site.data.projects | where: "category", "ml-statistics" | size %}
-{% assign bi_dashboard_count = site.data.projects | where: "category", "bi-dashboard" | size %}
+{% assign bi_dashboard_count = 0 %}
+{% for p in site.data.projects %}
+  {% if p.category == "bi-dashboard" %}
+    {% assign bi_dashboard_count = bi_dashboard_count | plus: 1 %}
+  {% elsif p.filter_categories %}
+    {% if p.filter_categories contains "bi-dashboard" %}
+      {% assign bi_dashboard_count = bi_dashboard_count | plus: 1 %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
 
 <section id="about" class="hero section enterprise-hero">
   <div class="hero-grid ide-hero-grid">
@@ -70,31 +78,74 @@ title: "Home"
   <p class="quote-author">James Clear</p>
 </section>
 
-<section id="experience" class="section">
-  <div class="section-header">
-    <h2>Experience Timeline</h2>
+<section id="experience" class="section experience-section" aria-labelledby="experience-heading">
+  <div class="section-header experience-section__header">
+    <h2 id="experience-heading">Experience</h2>
   </div>
-  <div class="experience-list">
+
+  <div class="exp-visual" role="list">
+    <div class="exp-visual__rail" aria-hidden="true"></div>
     {% for item in site.data.experience %}
-    <article class="experience-card">
-      <div class="experience-core">
-        <p class="experience-dates">{{ item.start_date }} — {{ item.end_date }}</p>
-        <h3 class="experience-company">{{ item.company }}{% if item.team %}<span class="experience-team">@ {{ item.team }}</span>{% endif %}</h3>
-        <p class="experience-position">{{ item.position }} · {{ item.location }}</p>
-        <p class="experience-description">{{ item.description }}</p>
-        {% if item.skills %}
-        <div class="experience-skills">
-          {% for skill in item.skills %}
-          <span class="pill">{{ skill }}</span>
-          {% endfor %}
+    <article
+      class="exp-visual__row js-exp-reveal"
+      role="listitem"
+      style="--exp-i: {{ forloop.index0 }}"
+    >
+      <span class="sr-only">{{ item.position }} at {{ item.company }}, {{ item.start_date }} — {{ item.end_date }}</span>
+      <div class="exp-visual__meta">
+        <div class="exp-visual__dates">
+          <span class="exp-visual__date-start">{{ item.start_date }}</span>
+          <span class="exp-visual__date-sep" aria-hidden="true">—</span>
+          <span class="exp-visual__date-end">{{ item.end_date }}</span>
+        </div>
+        <div class="exp-visual__axis">
+          <span class="exp-visual__node"></span>
+          <span class="exp-visual__connector" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="exp-visual__card">
+        {% if item.company_link %}
+        <a class="exp-visual__media" href="{{ item.company_link }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        {% else %}
+        <div class="exp-visual__media exp-visual__media--static">
+        {% endif %}
+          <div class="exp-visual__media-inner">
+            {% if item.image %}
+            <img
+              class="exp-visual__img"
+              src="{{ item.image | relative_url }}"
+              alt=""
+              width="800"
+              height="520"
+              loading="lazy"
+              decoding="async"
+            >
+            {% endif %}
+            <div class="exp-visual__media-gradient" aria-hidden="true"></div>
+          </div>
+        {% if item.company_link %}
+        </a>
+        {% else %}
         </div>
         {% endif %}
+        <div class="exp-visual__panel">
+          <div class="exp-visual__panel-content">
+            <h3 class="exp-visual__role">{{ item.position }}</h3>
+            {% if item.company_link %}
+            <a class="exp-visual__company" href="{{ item.company_link }}" target="_blank" rel="noopener">{{ item.company }}</a>
+            {% else %}
+            <span class="exp-visual__company exp-visual__company--text">{{ item.company }}</span>
+            {% endif %}
+            {% if item.team %}
+            <p class="exp-visual__team">{{ item.team }}</p>
+            {% endif %}
+            <p class="exp-visual__location">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span>{{ item.location }}</span>
+            </p>
+          </div>
+        </div>
       </div>
-      {% if item.image %}
-      <a class="experience-media" href="{{ item.company_link | default: '#' }}" {% if item.company_link %}target="_blank" rel="noopener"{% endif %} aria-label="{{ item.company }} website">
-        <img src="{{ item.image | relative_url }}" alt="{{ item.company }} logo or office">
-      </a>
-      {% endif %}
     </article>
     {% endfor %}
   </div>
@@ -114,7 +165,7 @@ title: "Home"
 
   <div class="works-grid">
     {% for item in site.data.projects %}
-    <article class="works-card" data-work-card data-category="{{ item.category }}">
+    <article class="works-card" data-work-card data-category="{% if item.filter_categories %}{{ item.filter_categories | join: ' ' }}{% else %}{{ item.category }}{% endif %}">
       <div class="works-media">
         <a class="works-thumb" href="{{ item.link }}" target="_blank" rel="noopener" aria-label="Open {{ item.title }}">
           <img

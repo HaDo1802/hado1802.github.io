@@ -98,8 +98,9 @@
         if (!filterButtons.length || !cards.length) return;
         function applyFilter(category) {
           cards.forEach(function (card) {
-            var cardCategory = card.getAttribute('data-category');
-            var shouldShow = category === 'all' || cardCategory === category;
+            var raw = card.getAttribute('data-category') || '';
+            var cats = raw.split(/\s+/).filter(Boolean);
+            var shouldShow = category === 'all' || cats.indexOf(category) !== -1;
             card.classList.toggle('is-hidden', !shouldShow);
           });
         }
@@ -113,6 +114,34 @@
           });
         });
         applyFilter('all');
+      })();
+      // Experience timeline — scroll reveal (respects reduced motion)
+      (function () {
+        var rows = document.querySelectorAll('.js-exp-reveal');
+        if (!rows.length) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          rows.forEach(function (el) {
+            el.classList.add('is-revealed');
+          });
+          return;
+        }
+        rows.forEach(function (el) {
+          el.classList.add('exp-reveal-pending');
+        });
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (en) {
+              if (!en.isIntersecting) return;
+              en.target.classList.add('is-revealed');
+              en.target.classList.remove('exp-reveal-pending');
+              io.unobserve(en.target);
+            });
+          },
+          { root: null, rootMargin: '0px 0px -5% 0px', threshold: 0.06 }
+        );
+        rows.forEach(function (el) {
+          io.observe(el);
+        });
       })();
       // Preview swap on hover if data-preview exists
       document.addEventListener('mouseover', function(e){

@@ -1,20 +1,3 @@
-- slug: "aurora-bank-credit-analysis"
-  title: "Aurora Bank Credit Analysis"
-  category: "bi-dashboard"
-  category_label: "BI & Dashboards"
-  link: "https://github.com/HaDo1802/loan_credit_analysis"
-  description: "Credit risk analysis project focused on understanding loan applicant behavior, default patterns, and actionable insights for lending decisions."
-  stack: "Python · SQL · Exploratory Data Analysis"
-  media:
-    cover: "assets/images/projects/aurora-bank-credit-analysis/cover.png"
-    preview: "assets/images/projects/aurora-bank-credit-analysis/preview.png"
-    screenshot: "assets/images/projects/aurora-bank-credit-analysis/cover.png"
-  skills_icons:
-    - src: "assets/images/skills/PostgresSQL.svg"
-      alt: "SQL"
-    - src: "assets/images/skills/scikit-learn.svg"
-      alt: "Scikit-learn"
-
 - slug: "housing-price-prediction"
   title: "Housing Price Prediction"
   category: "ml-statistics"
@@ -29,6 +12,8 @@
   skills_icons:
     - src: "assets/images/skills/Docker.svg"
       alt: "Docker"
+    - src: "assets/images/skills/airflow.svg"
+      alt: "Airflow"
     - src: "assets/images/skills/mlflow.png"
       alt: "MLflow"
     - src: "assets/images/skills/scikit-learn.svg"
@@ -45,8 +30,12 @@
     cover: "assets/images/projects/portfolio-optimization-management/cover.png"
     screenshot: "assets/images/projects/portfolio-optimization-management/cover.png"
   skills_icons:
-    - alt: "Optimization"
-      icon: "fa-solid fa-chart-line"
+    - icon: "fa-brands fa-python"
+      alt: "Python"
+    - src: "assets/images/skills/streamlit.svg"
+      alt: "Streamlit"
+    - icon: "fa-solid fa-square-root-variable"
+      alt: "Optimization"
 
 - slug: "zillow-real-estate-transformation-pipeline"
   title: "Zillow Real Estate Transformation Pipeline"
@@ -74,7 +63,10 @@
 - slug: "e-commerce-revenue-analysis"
   title: "E-commerce Revenue Analysis"
   category: "data-pipeline"
-  category_label: "Data Pipeline"
+  category_label: "Data Pipeline & BI"
+  filter_categories:
+    - data-pipeline
+    - bi-dashboard
   link: "https://github.com/HaDo1802/ecom_data_transformation_dbt"
   description: "End-to-end analytics engineering project using Kimball star-schema modeling to transform OLTP data into an OLAP-ready warehouse, powered by dbt and visualized in Tableau."
   stack: "PostgreSQL · dbt · Python · Tableau"
@@ -102,8 +94,8 @@
     preview: "assets/images/projects/zillow-data-extraction-ingestion-pipeline/preview.png"
     screenshot: "assets/images/projects/zillow-data-extraction-ingestion-pipeline/preview.png"
   skills_icons:
-    - alt: "Supabase"
-      icon: "fa-solid fa-database"
+    - src: "assets/images/skills/supabase.png"
+      alt: "Supabase"
     - src: "assets/images/skills/airflow.svg"
       alt: "Airflow"
     - src: "assets/images/skills/Dbt.png"
@@ -119,7 +111,7 @@
   category_label: "Data Pipeline"
   link: "https://github.com/HaDo1802/aws-soccer-data-pipeline"
   description: "Cloud-native EL project using Python, AWS Lambda, Step Functions, and S3 to scrape and process Transfermarkt soccer hierarchical data for downstream Snowflake ingestion and analytics."
-  stack: "Python · AWS Lambda · Step Functions · S3 · Snowflake"
+  stack: "Python · AWS Lambda · Step Functions · S3 · Snowflake · Terraform"
   media:
     cover: "assets/images/projects/aws-soccer-data-pipeline/cover-background.png"
     preview: "assets/images/projects/aws-soccer-data-pipeline/diagram-step-functions.png"
@@ -131,3 +123,5 @@
       alt: "AWS Step Functions"
     - src: "assets/images/skills/snowflake.png"
       alt: "Snowflake"
+    - src: "assets/images/skills/terraform.svg"
+      alt: "Terraform"

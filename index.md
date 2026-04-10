@@ -51,14 +51,17 @@ title: "Home"
       </div>
 
       <div class="social-links hero-socials" aria-label="Social links">
+        <a href="mailto:havando1802@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="tel:+16823748218" aria-label="Phone">
+          <i class="fa-solid fa-phone"></i>
+        </a>
         <a href="https://www.linkedin.com/in/ha-van-do/" target="_blank" rel="noopener" aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin-in"></i>
         </a>
         <a href="https://github.com/HaDo1802" target="_blank" rel="noopener" aria-label="GitHub">
           <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="mailto:havando1802@gmail.com" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
         </a>
       </div>
 
@@ -264,11 +267,22 @@ title: "Home"
     <div class="contact-panel">
       <h3>Collaborations and opportunities</h3>
       <p>
-        I enjoy working on data engineering pipelines, analytics automation, and experiment-driven decision systems.
+        I enjoy working on data engineering pipelines, analytics automation, and MLOps design.
         If you are hiring or collaborating, I would be glad to connect.
       </p>
+      <div class="contact-meta" aria-label="Direct contact details">
+        <a class="contact-meta__item" href="mailto:havando1802@gmail.com">
+          <i class="fa-solid fa-envelope"></i>
+          <span>havando1802@gmail.com</span>
+        </a>
+        <a class="contact-meta__item" href="tel:+16823748218">
+          <i class="fa-solid fa-phone"></i>
+          <span>(682) 374-8218</span>
+        </a>
+      </div>
       <div class="contact-actions">
         <a class="btn" href="mailto:havando1802@gmail.com">Email Me</a>
+        <a class="btn ghost" href="tel:+16823748218">Call Me</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/ha-van-do/" target="_blank" rel="noopener">Message on LinkedIn</a>
       </div>
     </div>

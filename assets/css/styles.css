@@ -99,11 +99,26 @@ a:hover {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   color: #fff;
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.brand__text {
+  display: inline-block;
+}
+
+.brand__gif {
+  display: inline-block;
+  width: clamp(1.75rem, 3.4vw, 2.35rem);
+  height: auto;
+  flex-shrink: 0;
+  transform: translateY(-0.02rem);
 }
 
 .nav-center {
@@ -1570,6 +1585,30 @@ a:hover {
 
 .contact-actions {
   margin-top: 1rem;
+}
+
+.contact-meta {
+  margin-top: 0.95rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.contact-meta__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: fit-content;
+  color: #d8def0;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.contact-meta__item i {
+  color: rgba(104, 210, 255, 0.85);
+}
+
+.contact-meta__item:hover {
+  color: #ffffff;
 }
 
 .site-footer {

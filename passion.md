@@ -86,9 +86,29 @@ layout: default
 
   .journal-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.2rem;
-    margin: 2rem 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+    align-items: start;
+  }
+
+  .journal-gallery-intro {
+    margin: 2.4rem 0 1rem;
+  }
+
+  .journal-gallery-intro h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.45rem;
+    color: var(--text);
+  }
+
+  .journal-gallery-intro p {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .journal-gallery figure:first-child {
+    grid-column: 1 / -1;
   }
 
   .journal-gallery figure {
@@ -102,9 +122,14 @@ layout: default
 
   .journal-gallery img {
     width: 100%;
-    height: 220px;
+    height: 240px;
     object-fit: cover;
     display: block;
+  }
+
+  .journal-gallery figure:first-child img {
+    height: 380px;
+    object-position: center 38%;
   }
 
   .journal-quote {
@@ -135,6 +160,19 @@ layout: default
     }
 
     .journal-figure img {
+      height: 240px;
+    }
+
+    .journal-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .journal-gallery figure:first-child {
+      grid-column: auto;
+    }
+
+    .journal-gallery img,
+    .journal-gallery figure:first-child img {
       height: 240px;
     }
   }
@@ -182,18 +220,23 @@ layout: default
     I carry South Africa with me now: in the sound of birds at sunrise, in the memory of a rhino walking free, and in a renewed commitment to protect the natural world. This journey didn’t just deepen my love for nature—it gave me purpose.
   </p>
 
+  <div class="journal-gallery-intro">
+    <h2>Field Notes in Frames</h2>
+    <p>A more ordered look at the moments that made this journey feel immediate, human, and unforgettable.</p>
+  </div>
+
   <div class="journal-gallery">
     <figure>
-      <img src="{{ '/assets/images/passion/IMG_5880.jpeg' | relative_url }}" alt="Wildlife conservation scene" data-lightbox-src="{{ '/assets/images/passion/IMG_5880.jpeg' | relative_url }}">
-      <figcaption class="journal-caption"><strong>Buffalo conservation lesson:</strong> Our team doing Wildebeest procedure: blood and temperature checking.</figcaption>
+      <img src="{{ '/assets/images/passion/IMG_6092.jpg' | relative_url }}" alt="Close-up rhino conservation moment in South Africa" data-lightbox-src="{{ '/assets/images/passion/IMG_6092.jpg' | relative_url }}">
+      <figcaption class="journal-caption"><strong>Up close with a rhino:</strong> Sitting beside a sedated rhino made the reality of conservation feel immediate and deeply personal.</figcaption>
     </figure>
     <figure>
-      <img src="{{ '/assets/images/passion/IMG_5958.jpeg' | relative_url }}" alt="South African landscape" data-lightbox-src="{{ '/assets/images/passion/IMG_5958.jpeg' | relative_url }}">
-      <figcaption class="journal-caption"><strong>Tracking by scale:</strong> Our ranger compared hist body length with a giraffe bones.</figcaption>
+      <img src="{{ '/assets/images/passion/IMG_5880.jpeg' | relative_url }}" alt="Wildlife conservation procedure with the field team" data-lightbox-src="{{ '/assets/images/passion/IMG_5880.jpeg' | relative_url }}">
+      <figcaption class="journal-caption"><strong>Conservation in practice:</strong> Our team assisted with a field procedure, checking temperature and collecting samples with care.</figcaption>
     </figure>
     <figure>
-      <img src="{{ '/assets/images/passion/IMG_6092.jpg' | relative_url }}" alt="Rhino conservation details" data-lightbox-src="{{ '/assets/images/passion/IMG_6092.jpg' | relative_url }}">
-      <figcaption class="journal-caption"><strong>Up close with a rhino:</strong> Me sitting  beside a sedated rhino made the reality of conservation feel immediate and personal.</figcaption>
+      <img src="{{ '/assets/images/passion/IMG_5958.jpeg' | relative_url }}" alt="Ranger comparing body scale with giraffe bones" data-lightbox-src="{{ '/assets/images/passion/IMG_5958.jpeg' | relative_url }}">
+      <figcaption class="journal-caption"><strong>Tracking by scale:</strong> Our ranger explained body size and movement by comparing measurements with giraffe bones.</figcaption>
     </figure>
   </div>
 

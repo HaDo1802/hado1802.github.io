@@ -1138,7 +1138,7 @@ a:hover {
 
 .exp-visual__date-start,
 .exp-visual__date-end {
-  font-size: 0.82rem;
+  font-size: 1.64rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -1151,7 +1151,7 @@ a:hover {
 }
 
 .exp-visual__date-sep {
-  font-size: 0.74rem;
+  font-size: 1.48rem;
   color: rgba(152, 164, 188, 0.4);
 }
 
